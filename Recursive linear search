@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Recursive function for linear search
+int linearSearch(int arr[], int size, int index, int target) {
+    // Base case: If index reaches the size of the array, element is not found
+    if (index >= size) {
+        return -1;
+    }
+
+    // If the element is found, return its index
+    if (arr[index] == target) {
+        return index;
+    }
+
+    // Recursive call to check the next element
+    return linearSearch(arr, size, index + 1, target);
+}
+
+int main() {
+    int n;
+    
+    // Taking input for array size
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    int arr[n];
+
+    // Taking array elements input
+    cout << "Enter " << n << " numbers: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int target;
+    cout << "Enter the number to search: ";
+    cin >> target;
+
+    // Call the recursive linear search function
+    int result = linearSearch(arr, n, 0, target);
+
+    if (result != -1) {
+        cout << "Element found at index " << result << endl;
+    } else {
+        cout << "Element not found in the array." << endl;
+    }
+
+    return 0;
+}
